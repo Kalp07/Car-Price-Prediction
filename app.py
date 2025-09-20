@@ -65,6 +65,4 @@ def predict():
         return f"An error occurred: {e}", 500
 
 if __name__ == "__main__":
-    # Ensure the app runs with the necessary files in the same directory.
-    # The debug=True option allows for live code changes without restarting the server.
-    app.run(debug=True)
+    app.run(debug=True, port=8000)
