@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+<title>Car Sale Price Prediction</title>
+<style>
+body {
+font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+background: linear-gradient(135deg, #74ebd5 0%, #9face6 100%);
+display: flex;
+justify-content: center;
+align-items: center;
+height: 100vh;
+margin: 0;
+}
+.container {
+background: #fff;
+padding: 30px 40px;
+border-radius: 12px;
+box-shadow: 0 6px 15px rgba(0,0,0,0.2);
+width: 400px;
+}
+h2 {
+text-align: center;
+color: #333;
+}
+label {
+font-weight: bold;
+margin-top: 10px;
+display: block;
+color: #444;
+}
+input, select {
+width: 100%;
+padding: 8px;
+margin: 6px 0 15px 0;
+border: 1px solid #ccc;
+border-radius: 6px;
+}
+button {
+width: 100%;
+padding: 12px;
+background: #007bff;
+border: none;
+color: #fff;
+font-size: 16px;
+border-radius: 6px;
+cursor: pointer;
+}
+button:hover {
+background: #0056b3;
+}
+.result {
+margin-top: 20px;
+text-align: center;
+font-size: 20px;
+color: #222;
+font-weight: bold;
+}
+</style>
+</head>
+<body>
+<div class="container">
+<h2>🚗 Car Sale Price Prediction</h2>
+<form method="POST" action="/predict">
+<label>Year of Manufacture:</label>
+<input type="number" name="yr_mfr" required>
+
+<label>Fuel Type:</label>
+<select name="fuel_type">
+    <option value="petrol">Petrol</option>
+    <option value="diesel">Diesel</option>
+    <option value="cng">CNG</option>
+    <option value="electric">Electric</option>
+</select>
+
+<label>KMs Run:</label>
+<input type="number" name="kms_run" required>
+
+<label>Transmission:</label>
+<select name="transmission">
+    <option value="manual">Manual</option>
+    <option value="automatic">Automatic</option>
+</select>
+
+<label>Body Type:</label>
+<input type="text" name="body_type" required>
+
+<label>Total Owners:</label>
+<input type="number" name="total_owners" required>
+
+<label>Car Make (Brand):</label>
+<input type="text" name="make" required>
+
+<label>Car Model:</label>
+<input type="text" name="model" required>
+
+<label>Car Rating:</label>
+<select name="car_rating">
+    <option value="great">Great</option>
+    <option value="good">Good</option>
+    <option value="fair">Fair</option>
+    <option value="overpriced">Overpriced</option>
+</select>
+
+<label>Original Price:</label>
+<input type="number" name="original_price" required>
+
+<label>Warranty Available:</label>
+<select name="warranty_avail">
+    <option value="True">Yes</option>
+    <option value="False">No</option>
+</select>
+
+<button type="submit">Predict Price</button>
+
+</form>
+
+{% if prediction %}
+<div class="result">
+Predicted Price: {{ prediction }}
+</div>
+{% endif %}
+
+</div>
+</body>
+</html>
